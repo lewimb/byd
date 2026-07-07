@@ -5,6 +5,7 @@ import Testimony from "../sections/testimony";
 import Profile from "../sections/profile";
 import BookingSection from "../sections/booking-section";
 import CarTypeSection from "../sections/car-type";
+import MapSection from "../sections/map-section";
 
 export default function Dashboard() {
   return (
@@ -16,6 +17,7 @@ export default function Dashboard() {
         <CarTypeSection />
         <Testimony />
         <BookingSection />
+        <MapSection />
         <FAQ />
       </div>
     </>
