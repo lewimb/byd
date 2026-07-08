@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/sections/header";
 import WhatsappButton from "@/components/components/shared/whatsapp-button";
+import Footer from "@/components/sections/footer";
+import FloatingActions from "@/components/components/shared/fam";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,12 +22,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} antialiased`}>
+    <html lang="en" className={`${inter.variable} antialiased scroll-smooth`}>
       <body className="flex flex-col">
         <main>
           <Header />
           {children}
           <WhatsappButton />
+          <Footer />
+          <FloatingActions />
         </main>
       </body>
     </html>

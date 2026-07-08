@@ -30,7 +30,7 @@ export default function Hero() {
             alt="byd-dealer-shop"
             className="size-96 rounded-lg object-cover w-full shrink-0"
           /> */}
-          <div className="size-96 rounded-lg w-full shrink-0 bg-gray-700" />
+          <div className="size-96 rounded-lg w-full shrink-0 bg-muted" />
         </div>
       </div>
     </section>

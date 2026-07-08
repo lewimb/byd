@@ -41,7 +41,7 @@ export default function Testimony() {
   };
 
   return (
-    <section className="p-4 sm:p-8 space-y-4">
+    <section id="testimoni" className="p-4 sm:p-8 space-y-4 scroll-mt-28">
       <div className="space-y-2">
         <h3 className="text-xs sm:text-sm font-semibold">TESTIMONI</h3>
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
@@ -79,9 +79,9 @@ export default function Testimony() {
               {stars.map((star) => (
                 <div key={star}>
                   {star <= testimony.rating ? (
-                    <StarIcon className="text-black size-3" filled={true} />
+                    <StarIcon className="text-primary size-3" filled={true} />
                   ) : (
-                    <StarIcon className="size-3" />
+                    <StarIcon className="text-border size-3" />
                   )}
                 </div>
               ))}
@@ -91,7 +91,7 @@ export default function Testimony() {
               <p className="font-semibold text-sm sm:text-base">
                 {testimony.customer.name}
               </p>
-              <p className="text-xs sm:text-sm text-neutral-400">
+              <p className="text-xs sm:text-sm text-muted-foreground">
                 {testimony.vehicle}
               </p>
             </div>
@@ -102,7 +102,7 @@ export default function Testimony() {
       {/* mobile scroll hint / progress dots */}
       <div className="flex sm:hidden justify-center gap-1.5 pt-1">
         {TESTIMONIALS.map((_, i) => (
-          <div key={i} className="size-1.5 rounded-full bg-neutral-300" />
+          <div key={i} className="size-1.5 rounded-full bg-border" />
         ))}
       </div>
     </section>

@@ -13,7 +13,10 @@ const SHOWROOM = {
 
 export default function MapSection() {
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 items-center px-6 sm:px-8 py-12">
+    <section
+      id="lokasi"
+      className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 items-center px-6 sm:px-8 py-12 bg-ink scroll-mt-28"
+    >
       <iframe
         src={MAP_EMBED_URL}
         title="Lokasi showroom BYD Arista Summarecon Serpong"
@@ -25,35 +28,38 @@ export default function MapSection() {
 
       <div className="space-y-5 lg:col-span-2">
         <div className="space-y-2">
-          <h3 className="uppercase text-xs sm:text-sm font-semibold tracking-widest text-neutral-500">
+          <h3 className="uppercase text-xs sm:text-sm font-semibold tracking-widest text-accent-glow">
             Lokasi
           </h3>
-          <h2 className="text-xl sm:text-2xl font-bold">
+          <h2 className="text-xl sm:text-2xl font-bold text-white">
             Kunjungi showroom kami
           </h2>
         </div>
 
-        <ul className="space-y-3 text-sm text-neutral-400">
+        <ul className="space-y-3 text-sm text-white">
           <li className="flex gap-3">
-            <MapPin className="size-4 shrink-0 mt-0.5" />
+            <MapPin className="size-4 shrink-0 mt-0.5 " />
             <span>{SHOWROOM.address}</span>
           </li>
           <li className="flex gap-3">
-            <Clock className="size-4 shrink-0 mt-0.5" />
+            <Clock className="size-4 shrink-0 mt-0.5 " />
             <span>{SHOWROOM.hours}</span>
           </li>
           <li className="flex gap-3">
-            <Phone className="size-4 shrink-0 mt-0.5" />
+            <Phone className="size-4 shrink-0 mt-0.5 " />
             <a
               href={`tel:${SHOWROOM.phone.replace(/\D/g, "")}`}
-              className=" transition-colors"
+              className="hover:text-white transition-colors"
             >
               {SHOWROOM.phone}
             </a>
           </li>
           <li className="flex gap-3">
-            <Mail className="size-4 shrink-0 mt-0.5" />
-            <a href={`mailto:${SHOWROOM.email}`} className=" transition-colors">
+            <Mail className="size-4 shrink-0 mt-0.5 text-white" />
+            <a
+              href={`mailto:${SHOWROOM.email}`}
+              className="hover:text-white transition-colors"
+            >
               {SHOWROOM.email}
             </a>
           </li>

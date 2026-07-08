@@ -1,15 +1,15 @@
 export const NAVLIST = [
   {
     title: "Sejarah",
-    url: "#",
+    url: "#sejarah",
   },
   {
     title: "Profil",
-    url: "#",
+    url: "#profil",
   },
   {
     title: "Mobil",
-    url: "#",
+    url: "#mobil",
   },
   {
     title: "Promo",
@@ -17,14 +17,14 @@ export const NAVLIST = [
   },
   {
     title: "Testimoni",
-    url: "#",
+    url: "#testimoni",
   },
   {
     title: "FAQ",
-    url: "#",
+    url: "#faq",
   },
   {
     title: "Lokasi",
-    url: "#",
+    url: "#lokasi",
   },
 ];
