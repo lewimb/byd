@@ -1,30 +1,30 @@
 export const NAVLIST = [
   {
     title: "Sejarah",
-    url: "#sejarah",
+    url: "/#sejarah",
   },
   {
     title: "Profil",
-    url: "#profil",
+    url: "/#profil",
   },
   {
     title: "Mobil",
-    url: "#mobil",
+    url: "/#mobil",
   },
   {
     title: "Promo",
-    url: "#",
+    url: "/#",
   },
   {
     title: "Testimoni",
-    url: "#testimoni",
+    url: "/#testimoni",
   },
   {
     title: "FAQ",
-    url: "#faq",
+    url: "/#faq",
   },
   {
     title: "Lokasi",
-    url: "#lokasi",
+    url: "/#lokasi",
   },
 ];

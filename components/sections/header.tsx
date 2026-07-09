@@ -20,7 +20,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header
+    <nav
       className={cn(
         "px-8 py-8 bg-background sticky z-30 top-0",
         isScrolled
@@ -30,7 +30,9 @@ export default function Header() {
       )}
     >
       <div className="flex justify-between items-center">
-        <BydLogo className={cn("w-30 h-fit object-cover")} />
+        <Link href="/">
+          <BydLogo className={cn("w-30 h-fit object-cover")} />
+        </Link>
         <div>
           <ul className="hidden lg:flex gap-4">
             {NAVLIST.map((nav) => (
@@ -53,6 +55,6 @@ export default function Header() {
         </Button>
         <MobileNav />
       </div>
-    </header>
+    </nav>
   );
 }
