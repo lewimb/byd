@@ -31,4 +31,10 @@ export const carTypes: CarType[] = [
     detail:
       "MPV mewah untuk keluarga besar atau kebutuhan korporasi dengan kenyamanan superior.",
   },
+  {
+    id: 6,
+    name: "BYD Atto 1",
+    detail:
+      "Compact SUV listrik lincah dan terjangkau, titik masuk termudah untuk beralih ke mobil listrik.",
+  },
 ];
