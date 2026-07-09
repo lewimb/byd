@@ -1,7 +1,15 @@
+export interface CarVariantPrice {
+  excludeHomeCharging?: number;
+  includeHomeCharging?: number;
+  includeHomeChargingWithKwhMeter?: number;
+}
+
 export interface CarVariant {
   name: string;
   battery: string;
   drivetrain: string;
+  /** OTR price in IDR. A plain number for ICE/PHEV variants, or a breakdown for EV variants priced with/without home charging. */
+  price?: number | CarVariantPrice;
 }
 
 export interface CarHighlight {

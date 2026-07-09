@@ -19,11 +19,13 @@ export const carDetails: CarDetail[] = [
         name: "Premium",
         battery: "82.5 kWh Blade Battery",
         drivetrain: "RWD · 313 hp",
+        price: { includeHomeCharging: 629000000, includeHomeChargingWithKwhMeter: 635500000 },
       },
       {
         name: "Performance AWD",
         battery: "82.5 kWh Blade Battery",
         drivetrain: "AWD · 523 hp",
+        price: { includeHomeCharging: 719000000, includeHomeChargingWithKwhMeter: 725500000 },
       },
     ],
     highlights: [
@@ -127,6 +129,7 @@ export const carDetails: CarDetail[] = [
         name: "Performance AWD",
         battery: "82.5 kWh Blade Battery",
         drivetrain: "AWD · 530 hp",
+        price: { includeHomeCharging: 750000000, includeHomeChargingWithKwhMeter: 756500000 },
       },
     ],
     highlights: [
@@ -230,6 +233,7 @@ export const carDetails: CarDetail[] = [
         name: "Premium",
         battery: "60.5 kWh Blade Battery",
         drivetrain: "RWD · 174 hp",
+        price: { excludeHomeCharging: 420500000, includeHomeCharging: 429000000 },
       },
     ],
     highlights: [
@@ -333,6 +337,7 @@ export const carDetails: CarDetail[] = [
         name: "Premium",
         battery: "60.5 kWh Blade Battery",
         drivetrain: "FWD · 201 hp",
+        price: { excludeHomeCharging: 415000000, includeHomeCharging: 423500000 },
       },
     ],
     highlights: [
@@ -431,11 +436,13 @@ export const carDetails: CarDetail[] = [
         name: "M6 Superior",
         battery: "55.4 kWh Blade Battery",
         drivetrain: "FWD · 190 hp",
+        price: { excludeHomeCharging: 423000000, includeHomeCharging: 437500000 },
       },
       {
         name: "Denza D9 Flagship AWD",
         battery: "108.2 kWh Blade Battery",
         drivetrain: "AWD · 435 hp",
+        price: { includeHomeCharging: 950000000 },
       },
     ],
     highlights: [
@@ -518,6 +525,117 @@ export const carDetails: CarDetail[] = [
         placeholder(1200, 900, "M6 Denza D9 Dashboard"),
         placeholder(1200, 900, "M6 Denza D9 Kabin"),
         placeholder(1200, 900, "M6 Denza D9 Jok"),
+      ],
+    },
+    brochure: {
+      pdf: "",
+    },
+  },
+  {
+    id: "6",
+    name: "BYD Atto 1",
+    tagline: "Compact SUV elektrik yang lincah dan efisien untuk mobilitas perkotaan.",
+    category: "Compact SUV Elektrik",
+    variants: [
+      {
+        name: "Standard 2026",
+        battery: "30.0 kWh Blade Battery · Jarak 300 km",
+        drivetrain: "FWD · 95 hp",
+        price: { excludeHomeCharging: 199000000, includeHomeCharging: 207500000 },
+      },
+      {
+        name: "Dynamic 2026",
+        battery: "30.0 kWh Blade Battery · Jarak 300 km",
+        drivetrain: "FWD · 95 hp",
+        price: { excludeHomeCharging: 205000000, includeHomeCharging: 213500000 },
+      },
+      {
+        name: "Premium 2026",
+        battery: "38.8 kWh Blade Battery · Jarak 380 km",
+        drivetrain: "FWD · 95 hp",
+        price: { excludeHomeCharging: 245000000, includeHomeCharging: 253500000 },
+      },
+    ],
+    highlights: [
+      {
+        title: "Jarak Tempuh hingga 380 km",
+        description: "Varian Premium dengan baterai 38.8 kWh untuk mobilitas harian tanpa cemas kehabisan daya.",
+      },
+      {
+        title: "Titik Masuk Termudah ke Mobil Listrik",
+        description: "Harga paling terjangkau di jajaran BYD, cocok untuk yang baru pertama beralih ke EV.",
+      },
+      {
+        title: "Efisiensi Baterai Kelas Compact",
+        description: "Blade Battery ringkas namun hemat energi, ideal untuk pemakaian perkotaan sehari-hari.",
+      },
+      {
+        title: "Struktur Bodi Ultra Aman",
+        description: "Rangka Blade Battery terintegrasi meningkatkan rigiditas bodi dan proteksi benturan.",
+      },
+      {
+        title: "Kabin Compact yang Lapang",
+        description: "Desain interior efisien memaksimalkan ruang kabin meski berdimensi ringkas.",
+      },
+      {
+        title: "Desain Playful Ocean Aesthetics",
+        description: "Siluet compact SUV dengan garis bodi khas BYD yang segar dan ekspresif.",
+      },
+    ],
+    exteriorFeatures: [
+      "Velg alloy 16 inci",
+      "Lampu LED signature menyatu",
+      "Flush door handle elektrik",
+      "Kaca privasi UV protection",
+      "Body kit compact sporty",
+      "Roof rail aksen",
+    ],
+    interiorFeatures: [
+      "Jok fabric premium",
+      "Kursi pengemudi manual",
+      "Ambient lighting",
+      "Wireless charging",
+      "Sistem audio 6 speaker",
+      "AC digital otomatis",
+    ],
+    safetyFeatures: [
+      "Adaptive Cruise Control",
+      "Lane Keep Assist",
+      "Rear View Camera",
+      "Blind Spot Detection",
+      "Automatic Emergency Braking",
+      "4 Airbag",
+    ],
+    technology: [
+      "Layar sentuh 10.1 inci",
+      "DiPilot Driving Assist",
+      "NFC & Face ID Key",
+      "Over-the-Air Update",
+      "Konektivitas Smartphone Penuh",
+      "Panel Instrumen Digital",
+    ],
+    colors: {
+      premiumExtendedRange: ["Cosmos Black", "Aurora White"],
+      dynamicStandardRange: ["Coral Pink", "Ski White"],
+    },
+    dimensions: {
+      length: 4020,
+      width: 1720,
+      height: 1590,
+      wheelbase: 2500,
+    },
+    images: {
+      hero: placeholder(1920, 1080, "BYD Atto 1"),
+      exterior: [
+        placeholder(1200, 900, "Atto 1 Depan"),
+        placeholder(1200, 900, "Atto 1 Samping"),
+        placeholder(1200, 900, "Atto 1 Belakang"),
+        placeholder(1200, 900, "Atto 1 Velg"),
+      ],
+      interior: [
+        placeholder(1200, 900, "Atto 1 Dashboard"),
+        placeholder(1200, 900, "Atto 1 Kabin"),
+        placeholder(1200, 900, "Atto 1 Jok"),
       ],
     },
     brochure: {
