@@ -91,7 +91,7 @@ export default function CarHero({ car }: CarHeroProps) {
               href="#"
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
-                "text-md py-5.5 border-white/25 text-ink-foreground hover:bg-white/10 hover:text-ink-foreground",
+                "text-md py-5.5 border-white/25 bg-transparent text-ink-foreground hover:bg-white/10",
               )}
             >
               Hubungi Sales

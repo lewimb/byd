@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import { carTypes } from "@/lib/car";
+import { getCarDetailById } from "@/lib/data/car-details";
+import { formatIDR, getStartingPrice } from "@/lib/car-price";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,6 +12,8 @@ import { cn } from "@/lib/utils";
 export default function CarTypeSection() {
   const [activeType, setActiveType] = useState(carTypes[0]?.id);
   const selected = carTypes.find((t) => t.id === activeType) ?? carTypes[0];
+  const selectedDetail = selected ? getCarDetailById(String(selected.id)) : undefined;
+  const startingPrice = selectedDetail ? getStartingPrice(selectedDetail) : undefined;
 
   return (
     <section
@@ -84,11 +88,20 @@ export default function CarTypeSection() {
             {selected.name}
           </div>
 
+          {startingPrice != null && (
+            <p className="text-sm text-ink-muted">
+              Mulai dari{" "}
+              <span className="text-lg font-bold text-ink-foreground">
+                {formatIDR(startingPrice)}
+              </span>
+            </p>
+          )}
+
           <Link
             href={`/cars/${selected.id}`}
             className={cn(
               buttonVariants({ variant: "outline", size: "lg" }),
-              "w-full text-md py-5.5 border-white/25 text-ink-foreground hover:bg-white/10 hover:text-ink-foreground",
+              "w-full text-md py-5.5 border-white/25 bg-transparent text-ink-foreground hover:bg-white/10",
             )}
           >
             Lihat Detail {selected.name}
