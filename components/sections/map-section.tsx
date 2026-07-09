@@ -31,12 +31,12 @@ export default function MapSection() {
           <h3 className="uppercase text-xs sm:text-sm font-semibold tracking-widest text-accent-glow">
             Lokasi
           </h3>
-          <h2 className="text-xl sm:text-2xl font-bold text-white">
+          <h2 className="text-xl sm:text-2xl font-bold text-ink-foreground">
             Kunjungi showroom kami
           </h2>
         </div>
 
-        <ul className="space-y-3 text-sm text-white">
+        <ul className="space-y-3 text-sm text-ink-foreground">
           <li className="flex gap-3">
             <MapPin className="size-4 shrink-0 mt-0.5 " />
             <span>{SHOWROOM.address}</span>
@@ -49,16 +49,16 @@ export default function MapSection() {
             <Phone className="size-4 shrink-0 mt-0.5 " />
             <a
               href={`tel:${SHOWROOM.phone.replace(/\D/g, "")}`}
-              className="hover:text-white transition-colors"
+              className="hover:text-accent-glow transition-colors"
             >
               {SHOWROOM.phone}
             </a>
           </li>
           <li className="flex gap-3">
-            <Mail className="size-4 shrink-0 mt-0.5 text-white" />
+            <Mail className="size-4 shrink-0 mt-0.5 text-ink-foreground" />
             <a
               href={`mailto:${SHOWROOM.email}`}
-              className="hover:text-white transition-colors"
+              className="hover:text-accent-glow transition-colors"
             >
               {SHOWROOM.email}
             </a>
