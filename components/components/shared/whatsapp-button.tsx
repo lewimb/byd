@@ -9,7 +9,7 @@ export default function WhatsappButton() {
       initial="rest"
       whileHover="hover"
       animate="rest"
-      className="fixed z-20 bottom-8 right-8 bg-green-500 cursor-pointer text-white p-3 rounded-full flex items-center gap-3 overflow-hidden"
+      className="fixed z-20 bottom-28 right-4 sm:bottom-8 sm:right-8 bg-green-500 cursor-pointer text-white p-3 rounded-full flex items-center gap-3 overflow-hidden"
     >
       <WhatsappIcon
         className="text-white size-7 shrink-0"
