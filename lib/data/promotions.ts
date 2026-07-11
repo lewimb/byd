@@ -3,9 +3,9 @@ import type { Promotion } from "@/lib/types/promotion";
 export const PROMOTIONS: Promotion[] = [
   {
     id: "dp-ringan",
-    title: "DP Ringan Mulai 10%",
+    title: "DP Ringan Mulai 20%",
     tagline: "Miliki BYD impian Anda dengan uang muka lebih ringan.",
-    discountLabel: "DP mulai 10%",
+    discountLabel: "DP mulai 20%",
     description:
       "Nikmati skema pembiayaan dengan uang muka mulai dari 10% untuk pembelian unit baru melalui mitra multifinance resmi kami.",
     terms: [
