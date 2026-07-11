@@ -1,10 +1,12 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import { Check } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { getColorHex, isLightColor } from "@/lib/car-colors";
+import { getColorPhoto } from "@/lib/car-color-photos";
 import type { CarDetail } from "@/lib/types/car-detail";
 import CarSilhouette from "./car-silhouette";
 import Reveal from "./reveal";
@@ -91,6 +93,7 @@ export default function ColorOptions({ car }: ColorOptionsProps) {
   if (allColors.length === 0) return null;
 
   const selectedHex = getColorHex(selected);
+  const selectedPhoto = getColorPhoto(car.id, selected);
   const selectedRange = premiumExtendedRange.includes(selected)
     ? "Premium Extended Range"
     : "Dynamic Standard Range";
@@ -112,11 +115,22 @@ export default function ColorOptions({ car }: ColorOptionsProps) {
               aria-hidden="true"
             />
             <div className="relative flex flex-col items-center gap-6">
-              <CarSilhouette
-                key={selected}
-                color={selectedHex}
-                className="w-full max-w-md animate-in fade-in zoom-in-95 duration-500"
-              />
+              {selectedPhoto ? (
+                <Image
+                  key={selected}
+                  src={selectedPhoto}
+                  alt={`${car.name} warna ${selected}`}
+                  width={2378}
+                  height={1775}
+                  className="h-auto w-full max-w-md animate-in fade-in zoom-in-95 duration-500"
+                />
+              ) : (
+                <CarSilhouette
+                  key={selected}
+                  color={selectedHex}
+                  className="w-full max-w-md animate-in fade-in zoom-in-95 duration-500"
+                />
+              )}
               <div className="space-y-1 text-center">
                 <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                   {selectedRange}
