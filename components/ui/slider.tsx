@@ -4,7 +4,12 @@ import { Slider as SliderPrimitive } from "@base-ui/react/slider"
 
 import { cn } from "@/lib/utils"
 
-function Slider({ className, ...props }: SliderPrimitive.Root.Props<number>) {
+type SliderProps = Omit<SliderPrimitive.Root.Props<number>, "value" | "onValueChange"> & {
+  value: number
+  onValueChange: (value: number, eventDetails: SliderPrimitive.Root.ChangeEventDetails) => void
+}
+
+function Slider({ className, ...props }: SliderProps) {
   return (
     <SliderPrimitive.Root
       data-slot="slider"
@@ -12,7 +17,7 @@ function Slider({ className, ...props }: SliderPrimitive.Root.Props<number>) {
       {...props}
     >
       <SliderPrimitive.Control className="flex w-full items-center py-2">
-        <SliderPrimitive.Track className="relative h-1.5 w-full grow rounded-full bg-muted">
+        <SliderPrimitive.Track data-slot="slider-track" className="relative h-1.5 w-full grow rounded-full bg-muted">
           <SliderPrimitive.Indicator
             data-slot="slider-indicator"
             className="absolute h-full rounded-full bg-primary"
