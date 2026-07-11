@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { PhoneCall, Car, ChevronRight, ChevronLeft } from "lucide-react";
 import Link from "next/link";
@@ -19,7 +19,16 @@ const ACTIONS = [
 ];
 
 export default function FloatingActions() {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
+
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    setCollapsed(!desktop.matches);
+
+    const handleChange = (event: MediaQueryListEvent) => setCollapsed(!event.matches);
+    desktop.addEventListener("change", handleChange);
+    return () => desktop.removeEventListener("change", handleChange);
+  }, []);
 
   return (
     <aside className="fixed right-0 top-1/2 z-50 flex -translate-y-1/2 items-center">
