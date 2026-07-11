@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { PhoneCall, Car, ChevronRight, ChevronLeft } from "lucide-react";
 import Link from "next/link";
@@ -18,22 +18,35 @@ const ACTIONS = [
   },
 ];
 
+const DESKTOP_QUERY = "(min-width: 1024px)";
+
+function subscribeToDesktopQuery(onChange: () => void) {
+  const mql = window.matchMedia(DESKTOP_QUERY);
+  mql.addEventListener("change", onChange);
+  return () => mql.removeEventListener("change", onChange);
+}
+
+function getIsDesktop() {
+  return window.matchMedia(DESKTOP_QUERY).matches;
+}
+
+function getServerIsDesktop() {
+  return false;
+}
+
 export default function FloatingActions() {
-  const [collapsed, setCollapsed] = useState(true);
-
-  useEffect(() => {
-    const desktop = window.matchMedia("(min-width: 1024px)");
-    setCollapsed(!desktop.matches);
-
-    const handleChange = (event: MediaQueryListEvent) => setCollapsed(!event.matches);
-    desktop.addEventListener("change", handleChange);
-    return () => desktop.removeEventListener("change", handleChange);
-  }, []);
+  const isDesktop = useSyncExternalStore(
+    subscribeToDesktopQuery,
+    getIsDesktop,
+    getServerIsDesktop,
+  );
+  const [manualOverride, setManualOverride] = useState<boolean | null>(null);
+  const collapsed = manualOverride ?? !isDesktop;
 
   return (
     <aside className="fixed right-0 top-1/2 z-50 flex -translate-y-1/2 items-center">
       <button
-        onClick={() => setCollapsed(!collapsed)}
+        onClick={() => setManualOverride(!collapsed)}
         aria-label={collapsed ? "Buka menu aksi cepat" : "Tutup menu aksi cepat"}
         className="group relative flex h-14 w-8 items-center justify-center rounded-l-2xl border border-r-0 border-white/10 bg-ink text-ink-foreground shadow-[0_8px_30px_-8px_rgba(0,0,0,0.6)] transition-colors hover:bg-ink/90"
       >
