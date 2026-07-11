@@ -14,9 +14,9 @@ export default function Dashboard() {
         <Hero />
         <CarTypeSection />
         <FinancingCalculatorSection />
+        <ShowroomShowcase />
         <Testimony />
         <ConsultSection />
-        <ShowroomShowcase />
         <MapSection />
         <FAQ />
       </div>
