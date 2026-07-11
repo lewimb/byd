@@ -9,4 +9,6 @@ export interface Testimonial {
   vehicle: string;
   rating: number;
   review: string;
+  /** Delivery/handover photo. Omitted until real customer photos are collected. */
+  photo?: string;
 }

@@ -1,8 +1,36 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { TESTIMONIALS } from "@/lib/testimonies";
 import StarIcon from "../components/shared/svg/star";
-import { CircleArrowRight, CircleArrowLeft } from "lucide-react";
+import { Camera, CircleArrowRight, CircleArrowLeft } from "lucide-react";
+import type { Testimonial } from "@/lib/types/testimony";
+
+interface TestimonyPhotoProps {
+  testimony: Testimonial;
+}
+
+function TestimonyPhoto({ testimony }: TestimonyPhotoProps) {
+  if (testimony.photo) {
+    return (
+      <Image
+        src={testimony.photo}
+        alt={`${testimony.customer.name} bersama ${testimony.vehicle}`}
+        fill
+        loading="lazy"
+        sizes="(min-width: 1024px) 32rem, 85vw"
+        className="object-cover"
+      />
+    );
+  }
+
+  return (
+    <div className="flex size-full flex-col items-center justify-center gap-1.5 bg-muted text-muted-foreground">
+      <Camera className="size-6" strokeWidth={1.5} />
+      <p className="text-xs">Foto pengiriman segera hadir</p>
+    </div>
+  );
+}
 
 export default function Testimony() {
   const stars = [1, 2, 3, 4, 5];
@@ -72,28 +100,34 @@ export default function Testimony() {
         {TESTIMONIALS.map((testimony) => (
           <div
             data-card
-            className="p-4 rounded-xl shadow-lg border w-[85vw] sm:w-auto sm:min-w-md lg:min-w-lg shrink-0 snap-start space-y-4"
+            className="overflow-hidden rounded-xl shadow-lg border w-[85vw] sm:w-auto sm:min-w-md lg:min-w-lg shrink-0 snap-start"
             key={testimony.id}
           >
-            <div className="flex gap-3">
-              {stars.map((star) => (
-                <div key={star}>
-                  {star <= testimony.rating ? (
-                    <StarIcon className="text-primary size-3" filled={true} />
-                  ) : (
-                    <StarIcon className="text-border size-3" />
-                  )}
-                </div>
-              ))}
+            <div className="relative aspect-16/9">
+              <TestimonyPhoto testimony={testimony} />
             </div>
-            <p className="text-sm sm:text-base">{testimony.review}</p>
-            <div className="space-y-1 sm:space-y-2">
-              <p className="font-semibold text-sm sm:text-base">
-                {testimony.customer.name}
-              </p>
-              <p className="text-xs sm:text-sm text-muted-foreground">
-                {testimony.vehicle}
-              </p>
+
+            <div className="p-4 space-y-4">
+              <div className="flex gap-3">
+                {stars.map((star) => (
+                  <div key={star}>
+                    {star <= testimony.rating ? (
+                      <StarIcon className="text-primary size-3" filled={true} />
+                    ) : (
+                      <StarIcon className="text-border size-3" />
+                    )}
+                  </div>
+                ))}
+              </div>
+              <p className="text-sm sm:text-base">{testimony.review}</p>
+              <div className="space-y-1 sm:space-y-2">
+                <p className="font-semibold text-sm sm:text-base">
+                  {testimony.customer.name}
+                </p>
+                <p className="text-xs sm:text-sm text-muted-foreground">
+                  {testimony.vehicle}
+                </p>
+              </div>
             </div>
           </div>
         ))}
