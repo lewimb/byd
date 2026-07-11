@@ -19,7 +19,7 @@ export default function ConsultSection() {
         <p className="text-sm text-muted-foreground leading-relaxed">
           Isi formulir berikut dan tim sales kami akan menghubungi Anda untuk
           membantu memilih tipe BYD yang tepat, atau menjadwalkan test drive
-          langsung di showroom.
+          gratis langsung di showroom.
         </p>
       </div>
 
