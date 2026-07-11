@@ -22,15 +22,15 @@ export default function Hero() {
           </p>
           <Button className="text-md py-5.5">Lihat Semua Mobil</Button>
         </div>
-        <div>
-          {/* <Image
-            src="https://mobilbyd.com/wp-content/uploads/2024/04/byd-tangerang.jpg"
-            width={100}
-            height={100}
-            alt="byd-dealer-shop"
-            className="size-96 rounded-lg object-cover w-full shrink-0"
-          /> */}
-          <div className="size-96 rounded-lg w-full shrink-0 bg-muted" />
+        <div className="relative aspect-video w-full shrink-0 overflow-hidden rounded-lg bg-[image:var(--background-primary)]">
+          <Image
+            src="/assets/line-up-byd/line-up-byd.png"
+            alt="Lineup kendaraan listrik BYD — M6, Seal, Sealion 7, Atto 3, dan Dolphin"
+            fill
+            priority
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-contain p-6"
+          />
         </div>
       </div>
     </section>
