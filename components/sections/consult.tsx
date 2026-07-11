@@ -2,7 +2,7 @@ import ConsultForm from "@/components/components/shared/consult-form";
 
 export default function ConsultSection() {
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start px-6 sm:px-8 py-16 sm:py-20">
+    <section id="konsultasi" className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start px-6 sm:px-8 py-16 sm:py-20 scroll-mt-28">
       <div className="space-y-3 lg:col-span-2">
         <h3 className="uppercase text-xs sm:text-sm font-semibold tracking-widest text-primary">
           Konsultasi

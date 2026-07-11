@@ -8,6 +8,7 @@ import CarTypeSection from "../sections/car-type";
 import ConsultSection from "../sections/consult";
 import MapSection from "../sections/map-section";
 import SalesConsultantSection from "../sections/sales-consultant";
+import FinancingCalculatorSection from "../sections/financing-calculator";
 
 export default function Dashboard() {
   return (
@@ -17,6 +18,7 @@ export default function Dashboard() {
         <CompanyHistory />
         <Profile />
         <CarTypeSection />
+        <FinancingCalculatorSection />
         <Testimony />
         <BookingSection />
         <SalesConsultantSection />
