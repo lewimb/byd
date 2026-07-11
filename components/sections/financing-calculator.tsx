@@ -90,6 +90,7 @@ export default function FinancingCalculatorSection() {
                   key={years}
                   type="button"
                   onClick={() => setTenorYears(years)}
+                  aria-pressed={years === tenorYears}
                   className={cn(
                     buttonVariants({
                       variant: years === tenorYears ? "default" : "outline",
