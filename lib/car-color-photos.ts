@@ -1,7 +1,7 @@
-const SEAL_ANGLES = ["angle7", "angle4", "angle5"] as const;
-type SealAngle = (typeof SEAL_ANGLES)[number];
+export const SEAL_ANGLES = ["angle7", "angle4", "angle5"] as const;
+export type SealAngle = (typeof SEAL_ANGLES)[number];
 
-const SEAL_ANGLE_LABELS: Record<SealAngle, string> = {
+export const SEAL_ANGLE_LABELS: Record<SealAngle, string> = {
   angle4: "Tampak Depan",
   angle5: "Tampak Samping",
   angle7: "Tampak Menyudut",
@@ -44,29 +44,26 @@ const CAR_COLOR_PHOTOS: Record<string, Record<string, Record<SealAngle, string>>
 
 export interface ColorPhoto {
   src: string;
-  angleLabel: string;
   width: number;
   height: number;
 }
 
 /**
- * Real photo for a car's color variant, if one exists yet. `angleIndex` cycles
- * through the available angles (wraps with modulo) so repeated selection walks
- * around the car instead of always showing the same framing. Callers fall
- * back to the generic silhouette when this returns undefined.
+ * Real photo for a car's color + angle, if one exists yet. Callers fall back
+ * to the generic silhouette when this returns undefined.
  */
 export function getColorPhoto(
   carId: string,
   colorName: string,
-  angleIndex: number,
+  angle: SealAngle,
 ): ColorPhoto | undefined {
   const anglesForColor = CAR_COLOR_PHOTOS[carId]?.[colorName];
   if (!anglesForColor) return undefined;
 
-  const angle = SEAL_ANGLES[angleIndex % SEAL_ANGLES.length];
-  return {
-    src: anglesForColor[angle],
-    angleLabel: SEAL_ANGLE_LABELS[angle],
-    ...SEAL_ANGLE_DIMENSIONS[angle],
-  };
+  return { src: anglesForColor[angle], ...SEAL_ANGLE_DIMENSIONS[angle] };
+}
+
+/** Which angles have real photography for this car. Undefined means no angle picker should render. */
+export function getAvailableAngles(carId: string): readonly SealAngle[] | undefined {
+  return CAR_COLOR_PHOTOS[carId] ? SEAL_ANGLES : undefined;
 }
