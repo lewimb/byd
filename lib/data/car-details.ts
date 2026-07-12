@@ -203,8 +203,8 @@ export const carDetails: CarDetail[] = [
     images: {
       hero: placeholder(1920, 1080, "BYD Seal"),
       exterior: [
-        placeholder(1200, 900, "Seal Depan"),
-        placeholder(1200, 900, "Seal Samping"),
+        "/assets/cars/seal-colors/cosmos-black-angle7.png",
+        "/assets/cars/seal-colors/cosmos-black-angle5.png",
         placeholder(1200, 900, "Seal Belakang"),
         placeholder(1200, 900, "Seal Velg"),
       ],
