@@ -41,10 +41,13 @@ export default function CarGallery({ car }: CarGalleryProps) {
   return (
     <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-20 space-y-10">
       <Reveal>
-        <SectionHeading eyebrow="Galeri" title="Setiap Sudut, Setiap Detail" />
+        <SectionHeading eyebrow="Galeri" title="Exterior/Interior" />
       </Reveal>
 
-      <Reveal delay={0.05} className="relative aspect-21/9 overflow-hidden rounded-3xl bg-muted">
+      <Reveal
+        delay={0.05}
+        className="relative aspect-21/9 overflow-hidden rounded-3xl bg-muted"
+      >
         <Image
           src={car.images.hero}
           alt={`${car.name} tampilan utama`}
@@ -60,14 +63,20 @@ export default function CarGallery({ car }: CarGalleryProps) {
           <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-widest">
             Eksterior
           </h3>
-          <GalleryGrid images={car.images.exterior} alt={`${car.name} eksterior`} />
+          <GalleryGrid
+            images={car.images.exterior}
+            alt={`${car.name} eksterior`}
+          />
         </Reveal>
 
         <Reveal delay={0.15} className="space-y-4">
           <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-widest">
             Interior
           </h3>
-          <GalleryGrid images={car.images.interior} alt={`${car.name} interior`} />
+          <GalleryGrid
+            images={car.images.interior}
+            alt={`${car.name} interior`}
+          />
         </Reveal>
       </div>
     </section>

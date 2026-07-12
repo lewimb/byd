@@ -4,7 +4,7 @@ import Testimony from "../sections/testimony";
 import CarTypeSection from "../sections/car-type";
 import ConsultSection from "../sections/consult";
 import MapSection from "../sections/map-section";
-import FinancingCalculatorSection from "../sections/financing-calculator";
+// import FinancingCalculatorSection from "../sections/financing-calculator";
 import ShowroomShowcase from "../sections/showroom-showcase";
 
 export default function Dashboard() {
@@ -13,7 +13,7 @@ export default function Dashboard() {
       <div className="relative z-10">
         <Hero />
         <CarTypeSection />
-        <FinancingCalculatorSection />
+        {/* <FinancingCalculatorSection /> */}
         <ShowroomShowcase />
         <Testimony />
         <ConsultSection />

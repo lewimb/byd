@@ -7,14 +7,17 @@ import { Badge } from "../ui/badge";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[image:var(--background-primary)] px-6 sm:px-8 lg:px-12 pt-16 sm:pt-20 lg:pt-24">
+    <section className="relative overflow-hidden bg-(image:--background-primary) px-6 sm:px-8 lg:px-12 pt-16 sm:pt-20 lg:pt-24 pb-10">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className="relative z-10 max-w-2xl space-y-4 pb-14 sm:pb-20 lg:pb-28 text-center lg:text-left mx-auto lg:mx-0"
       >
-        <Badge variant="outline" className="border-white/25 text-ink-foreground">
+        <Badge
+          variant="outline"
+          className="border-white/25 text-ink-foreground"
+        >
           Dealer Resmi BYD · Scientia Garden
         </Badge>
 
@@ -25,8 +28,8 @@ export default function Hero() {
         </h1>
         <p className="text-ink-muted text-base sm:text-lg text-pretty max-w-xl mx-auto lg:mx-0">
           Showroom resmi BYD di Scientia Garden — jelajahi lini kendaraan
-          listrik terbaru, jadwalkan test drive, dan konsultasi langsung
-          dengan tim sales kami.
+          listrik terbaru, jadwalkan test drive, dan konsultasi langsung dengan
+          tim sales kami.
         </p>
         <Button className="text-md py-5.5">Lihat Semua Mobil</Button>
       </motion.div>
@@ -46,10 +49,11 @@ export default function Hero() {
           src="/assets/line-up-byd/line-up-byd-trimmed.png"
           alt="Lineup kendaraan listrik BYD — M6, Seal, Sealion 7, Atto 3, dan Dolphin"
           width={2934}
-          height={429}
+          height={629}
           priority
           sizes="100vw"
-          className="h-auto w-full"
+          loading="eager"
+          className="h-auto w-full size-"
         />
       </motion.div>
     </section>
