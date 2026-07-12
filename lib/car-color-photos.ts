@@ -71,8 +71,34 @@ const ATTO3_PHOTOS: CarPhotoConfig = {
   },
 };
 
+const DOLPHIN_PHOTOS: CarPhotoConfig = {
+  angleOrder: ["hero"],
+  angleLabels: {
+    hero: "Tampak Menyudut",
+  },
+  colors: {
+    "Atlantis Grey": {
+      hero: { src: "/assets/cars/dolphin-colors/atlantis-grey-hero.png", width: 6615, height: 2397 },
+    },
+    "Racing Grey": {
+      hero: { src: "/assets/cars/dolphin-colors/racing-grey-hero.png", width: 10554, height: 4056 },
+    },
+    "Coral Pink": {
+      hero: { src: "/assets/cars/dolphin-colors/coral-pink-hero.png", width: 3297, height: 1504 },
+    },
+    "Ski White": {
+      hero: { src: "/assets/cars/dolphin-colors/ski-white-hero.png", width: 10554, height: 4056 },
+    },
+    "Surf Blue": {
+      hero: { src: "/assets/cars/dolphin-colors/surf-blue-hero.png", width: 6615, height: 2397 },
+    },
+    // Cosmos Black has no real photo yet — falls back to the silhouette.
+  },
+};
+
 /** carId -> photo config. Only populated for cars with real photography so far. */
 const CAR_PHOTO_CONFIGS: Record<string, CarPhotoConfig> = {
+  "1": DOLPHIN_PHOTOS, // BYD Dolphin
   "2": ATTO3_PHOTOS, // BYD Atto 3
   "3": SEAL_PHOTOS, // BYD Seal
 };
