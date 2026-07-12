@@ -147,3 +147,20 @@ export function getAvailableAngles(carId: string): AngleOption[] | undefined {
 
   return config.angleOrder.map((key) => ({ key, label: config.angleLabels[key] }));
 }
+
+/**
+ * Best available thumbnail for a car: the first color (in premium-then-standard
+ * order) that has a real photo at the car's primary angle. Returns undefined
+ * when the car has no photography at all, so callers can fall back to the
+ * tinted silhouette.
+ */
+export function getShowcasePhoto(
+  carId: string,
+  colorNames: string[],
+): { photo?: ColorPhoto; colorName?: string } {
+  const angle = getAvailableAngles(carId)?.[0]?.key;
+  if (!angle) return {};
+
+  const colorName = colorNames.find((name) => getColorPhoto(carId, name, angle));
+  return { photo: colorName ? getColorPhoto(carId, colorName, angle) : undefined, colorName };
+}

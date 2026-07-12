@@ -5,8 +5,8 @@ import CarHighlights from "@/components/car-detail/car-highlights";
 import CarVariants from "@/components/car-detail/car-variants";
 import ColorOptions from "@/components/car-detail/color-options";
 import DimensionsCard from "@/components/car-detail/dimensions-card";
-import DownloadBrochure from "@/components/car-detail/download-brochure";
 import FeatureGrid from "@/components/car-detail/feature-grid";
+import OtherModels from "@/components/car-detail/other-models";
 import SafetyGrid from "@/components/car-detail/safety-grid";
 import TechnologyGrid from "@/components/car-detail/technology-grid";
 import type { CarDetail } from "@/lib/types/car-detail";
@@ -37,7 +37,7 @@ export default function CarDetailPage({ car }: CarDetailPageProps) {
       />
       <ColorOptions car={car} />
       <DimensionsCard car={car} />
-      <DownloadBrochure car={car} />
+      <OtherModels car={car} />
       <BottomCTA car={car} />
     </article>
   );

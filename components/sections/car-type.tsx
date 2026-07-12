@@ -3,7 +3,7 @@ import { useState } from "react";
 import { carTypes } from "@/lib/car";
 import { getCarDetailById } from "@/lib/data/car-details";
 import { formatIDR, getStartingPrice } from "@/lib/car-price";
-import { getAvailableAngles, getColorPhoto } from "@/lib/car-color-photos";
+import { getShowcasePhoto } from "@/lib/car-color-photos";
 import { getColorHex } from "@/lib/car-colors";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
@@ -25,12 +25,9 @@ export default function CarTypeSection() {
   const colorNames = selectedDetail
     ? [...selectedDetail.colors.premiumExtendedRange, ...selectedDetail.colors.dynamicStandardRange]
     : [];
-  const heroAngle = selectedDetail ? getAvailableAngles(selectedDetail.id)?.[0]?.key : undefined;
-  const showcaseColor = heroAngle
-    ? colorNames.find((c) => getColorPhoto(selectedDetail!.id, c, heroAngle))
-    : undefined;
-  const showcasePhoto =
-    showcaseColor && heroAngle ? getColorPhoto(selectedDetail!.id, showcaseColor, heroAngle) : undefined;
+  const { photo: showcasePhoto, colorName: showcaseColor } = selectedDetail
+    ? getShowcasePhoto(selectedDetail.id, colorNames)
+    : {};
   const showcaseHex = getColorHex(showcaseColor ?? colorNames[0] ?? "grey");
 
   const goTo = (id: number) => setActiveType(id);
