@@ -411,9 +411,9 @@ export const carDetails: CarDetail[] = [
     images: {
       hero: placeholder(1920, 1080, "BYD Atto 3"),
       exterior: [
-        placeholder(1200, 900, "Atto 3 Depan"),
+        "/assets/cars/atto3-colors/gallery-front.png",
+        "/assets/cars/atto3-colors/gallery-rear.png",
         placeholder(1200, 900, "Atto 3 Samping"),
-        placeholder(1200, 900, "Atto 3 Belakang"),
         placeholder(1200, 900, "Atto 3 Velg"),
       ],
       interior: [

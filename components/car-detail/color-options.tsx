@@ -7,12 +7,7 @@ import { Check } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { getColorHex, isLightColor } from "@/lib/car-colors";
-import {
-  getAvailableAngles,
-  getColorPhoto,
-  SEAL_ANGLE_LABELS,
-  type SealAngle,
-} from "@/lib/car-color-photos";
+import { getAvailableAngles, getColorPhoto } from "@/lib/car-color-photos";
 import type { CarDetail } from "@/lib/types/car-detail";
 import CarSilhouette from "./car-silhouette";
 import Reveal from "./reveal";
@@ -97,12 +92,13 @@ export default function ColorOptions({ car }: ColorOptionsProps) {
   const availableAngles = getAvailableAngles(car.id);
 
   const [selected, setSelected] = useState(allColors[0] ?? "");
-  const [angle, setAngle] = useState<SealAngle | undefined>(availableAngles?.[0]);
+  const [angleKey, setAngleKey] = useState<string | undefined>(availableAngles?.[0]?.key);
 
   if (allColors.length === 0) return null;
 
   const selectedHex = getColorHex(selected);
-  const selectedPhoto = angle ? getColorPhoto(car.id, selected, angle) : undefined;
+  const selectedPhoto = angleKey ? getColorPhoto(car.id, selected, angleKey) : undefined;
+  const selectedAngleLabel = availableAngles?.find((a) => a.key === angleKey)?.label;
   const selectedRange = premiumExtendedRange.includes(selected)
     ? "Premium Extended Range"
     : "Dynamic Standard Range";
@@ -128,7 +124,7 @@ export default function ColorOptions({ car }: ColorOptionsProps) {
                 <Image
                   key={selectedPhoto.src}
                   src={selectedPhoto.src}
-                  alt={`${car.name} warna ${selected}${angle ? ` — ${SEAL_ANGLE_LABELS[angle]}` : ""}`}
+                  alt={`${car.name} warna ${selected}${selectedAngleLabel ? ` — ${selectedAngleLabel}` : ""}`}
                   width={selectedPhoto.width}
                   height={selectedPhoto.height}
                   className="h-auto w-full max-w-md animate-in fade-in zoom-in-95 duration-500"
@@ -141,22 +137,22 @@ export default function ColorOptions({ car }: ColorOptionsProps) {
                 />
               )}
 
-              {selectedPhoto && availableAngles && (
+              {selectedPhoto && availableAngles && availableAngles.length > 1 && (
                 <div className="flex flex-wrap justify-center gap-2">
                   {availableAngles.map((a) => (
                     <button
-                      key={a}
+                      key={a.key}
                       type="button"
-                      onClick={() => setAngle(a)}
-                      aria-pressed={a === angle}
+                      onClick={() => setAngleKey(a.key)}
+                      aria-pressed={a.key === angleKey}
                       className={cn(
                         buttonVariants({
-                          variant: a === angle ? "default" : "outline",
+                          variant: a.key === angleKey ? "default" : "outline",
                           size: "sm",
                         }),
                       )}
                     >
-                      {SEAL_ANGLE_LABELS[a]}
+                      {a.label}
                     </button>
                   ))}
                 </div>
