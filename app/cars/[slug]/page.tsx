@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 import CarDetailPage from "@/components/pages/car-detail";
 import { carDetails, getCarDetailBySlug } from "@/lib/data/car-details";
@@ -63,5 +64,12 @@ export default async function Page({ params }: CarPageProps) {
     notFound();
   }
 
-  return <CarDetailPage car={car} />;
+  const GA_ID = process.env.GOOGLE_ANALYTICS_ID;
+
+  return (
+    <>
+      <CarDetailPage car={car} />
+      <GoogleAnalytics gaId={GA_ID ? GA_ID : ""} />
+    </>
+  );
 }
