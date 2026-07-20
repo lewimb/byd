@@ -47,7 +47,9 @@ export default function FloatingActions() {
     <aside className="fixed right-0 top-1/2 z-50 flex -translate-y-1/2 items-center">
       <button
         onClick={() => setManualOverride(!collapsed)}
-        aria-label={collapsed ? "Buka menu aksi cepat" : "Tutup menu aksi cepat"}
+        aria-label={
+          collapsed ? "Buka menu aksi cepat" : "Tutup menu aksi cepat"
+        }
         className="group relative flex h-14 w-8 items-center justify-center rounded-l-2xl border border-r-0 border-white/10 bg-ink text-ink-foreground shadow-[0_8px_30px_-8px_rgba(0,0,0,0.6)] transition-colors hover:bg-ink/90"
       >
         {collapsed && (

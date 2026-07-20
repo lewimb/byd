@@ -26,7 +26,7 @@ export default function AccordionComponent({
           key={item.value}
           value={item.value}
         >
-          <AccordionTrigger className="cursor-pointer  ">
+          <AccordionTrigger className="cursor-pointer">
             {item.title}
           </AccordionTrigger>
           <AccordionContent>{item.content}</AccordionContent>

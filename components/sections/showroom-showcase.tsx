@@ -9,6 +9,7 @@ import { ChevronLeft, ChevronRight, Expand, X } from "lucide-react";
 import SectionHeading from "@/components/car-detail/section-heading";
 import Reveal from "@/components/car-detail/reveal";
 import { cn } from "@/lib/utils";
+import { sendGAEvent } from "@next/third-parties/google";
 
 interface ShowroomPhoto {
   src: string;
@@ -103,62 +104,62 @@ export default function ShowroomShowcase() {
         className="px-4 sm:px-6 lg:px-8 py-16 sm:py-20 space-y-10 scroll-mt-28"
       >
         <div className="shell space-y-10">
-        <Reveal>
-          <SectionHeading
-            eyebrow="Showroom"
-            title="Setiap Sudut Showroom Kami"
-            description="Dari ruang pamer hingga bengkel servis — intip fasilitas BYD Scientia Garden sebelum berkunjung langsung."
-          />
-        </Reveal>
+          <Reveal>
+            <SectionHeading
+              eyebrow="Showroom"
+              title="Setiap Sudut Showroom Kami"
+              description="Dari ruang pamer hingga bengkel servis — intip fasilitas BYD Scientia Garden sebelum berkunjung langsung."
+            />
+          </Reveal>
 
-        <Reveal delay={0.05}>
-          <div
-            className="grid gap-3 sm:gap-4 [grid-auto-flow:dense]"
-            style={{
-              gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
-              gridAutoRows: "10rem",
-            }}
-          >
-            {PHOTOS.map((photo, index) => (
-              <button
-                key={photo.src}
-                type="button"
-                onClick={() => setActiveIndex(index)}
-                aria-label={`Lihat foto ${photo.title} secara penuh`}
-                className={cn(
-                  "group relative overflow-hidden rounded-2xl bg-muted text-left focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50",
-                  photo.featured
-                    ? "col-span-4 row-span-2 sm:col-span-2 lg:col-span-2"
-                    : "col-span-2 row-span-1 sm:col-span-1",
-                )}
-              >
-                <Image
-                  src={photo.src}
-                  alt={`${photo.title} — BYD Scientia Garden`}
-                  fill
-                  loading="lazy"
-                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                />
+          <Reveal delay={0.05}>
+            <div
+              className="grid gap-3 sm:gap-4 grid-flow-dense"
+              style={{
+                gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+                gridAutoRows: "10rem",
+              }}
+            >
+              {PHOTOS.map((photo, index) => (
+                <button
+                  key={photo.src}
+                  type="button"
+                  onClick={() => setActiveIndex(index)}
+                  aria-label={`Lihat foto ${photo.title} secara penuh`}
+                  className={cn(
+                    "group relative overflow-hidden rounded-2xl bg-muted text-left focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50",
+                    photo.featured
+                      ? "col-span-4 row-span-2 sm:col-span-2 lg:col-span-2"
+                      : "col-span-2 row-span-1 sm:col-span-1",
+                  )}
+                >
+                  <Image
+                    src={photo.src}
+                    alt={`${photo.title} — BYD Scientia Garden`}
+                    fill
+                    loading="lazy"
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/0" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/0 to-black/0" />
 
-                <span className="absolute top-3 right-3 flex size-8 items-center justify-center rounded-full bg-black/40 text-white opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
-                  <Expand className="size-4" />
-                </span>
+                  <span className="absolute top-3 right-3 flex size-8 items-center justify-center rounded-full bg-black/40 text-white opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
+                    <Expand className="size-4" />
+                  </span>
 
-                <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
-                  <p className="text-[0.65rem] font-semibold tracking-widest text-white/70 uppercase">
-                    {photo.eyebrow}
-                  </p>
-                  <p className="text-sm sm:text-base font-semibold text-white">
-                    {photo.title}
-                  </p>
-                </div>
-              </button>
-            ))}
-          </div>
-        </Reveal>
+                  <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
+                    <p className="text-[0.65rem] font-semibold tracking-widest text-white/70 uppercase">
+                      {photo.eyebrow}
+                    </p>
+                    <p className="text-sm sm:text-base font-semibold text-white">
+                      {photo.title}
+                    </p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -174,7 +175,7 @@ export default function ShowroomShowcase() {
                 role="dialog"
                 aria-modal="true"
                 aria-label={active.title}
-                className="fixed inset-0 z-[60] flex items-center justify-center bg-black/90 p-4 sm:p-8"
+                className="fixed inset-0 z-60 flex items-center justify-center bg-black/90 p-4 sm:p-8"
                 onClick={close}
               >
                 <button
