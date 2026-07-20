@@ -11,14 +11,18 @@ export default function SalesConsultantSection() {
             Konsultasikan Kebutuhan Anda dengan Ahlinya
           </h2>
           <p className="text-sm text-muted-foreground">
-            Sales consultant bersertifikat BYD siap membantu Anda memilih
-            unit dan simulasi pembiayaan yang paling sesuai.
+            Sales consultant bersertifikat BYD siap membantu Anda memilih unit
+            dan simulasi pembiayaan yang paling sesuai.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {SALES_CONSULTANTS.map((consultant, index) => (
-            <ConsultantCard key={consultant.id} consultant={consultant} index={index} />
+            <ConsultantCard
+              key={consultant.id}
+              consultant={consultant}
+              index={index}
+            />
           ))}
         </div>
       </div>

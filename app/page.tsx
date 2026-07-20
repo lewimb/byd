@@ -1,5 +1,5 @@
 import Dashboard from "@/components/pages/dashboard";
-import { GoogleAnalytics, sendGAEvent } from "@next/third-parties/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { BUSINESS, SITE_NAME } from "@/lib/seo";
 
@@ -19,7 +19,9 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     url: "/",
     siteName: SITE_NAME,
-    images: [{ url: BUSINESS.ogImage, width: 1200, height: 630, alt: SITE_NAME }],
+    images: [
+      { url: BUSINESS.ogImage, width: 1200, height: 630, alt: SITE_NAME },
+    ],
   },
   twitter: {
     card: "summary_large_image",

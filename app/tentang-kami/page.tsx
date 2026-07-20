@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import TentangKamiPage from "@/components/pages/tentang-kami";
 import { BUSINESS } from "@/lib/seo";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const TITLE = "Tentang Kami";
 const DESCRIPTION =
@@ -33,5 +34,12 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <TentangKamiPage />;
+  const GA_ID = process.env.GOOGLE_ANALYTICS_ID;
+
+  return (
+    <>
+      <TentangKamiPage />;
+      <GoogleAnalytics gaId={GA_ID ? GA_ID : ""} />
+    </>
+  );
 }

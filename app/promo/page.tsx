@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import PromotionsPage from "@/components/pages/promotions";
 import { PROMOTIONS } from "@/lib/data/promotions";
 import { BUSINESS } from "@/lib/seo";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const TITLE = "Promo BYD Tangerang";
 const DESCRIPTION =
@@ -35,5 +36,11 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PromotionsPage promotions={PROMOTIONS} />;
+  const GA_ID = process.env.GOOGLE_ANALYTICS_ID;
+  return (
+    <>
+      <PromotionsPage promotions={PROMOTIONS} />;
+      <GoogleAnalytics gaId={GA_ID ? GA_ID : ""} />
+    </>
+  );
 }

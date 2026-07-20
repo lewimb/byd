@@ -1,3 +1,4 @@
+"use client";
 import { BadgeCheck, CalendarDays, PhoneCall } from "lucide-react";
 import Link from "next/link";
 
@@ -6,6 +7,7 @@ import { formatJoinDate } from "@/lib/sales-consultants";
 import type { SalesConsultant } from "@/lib/types/sales-consultant";
 import { cn } from "@/lib/utils";
 import CertifiedBadge from "./certified-badge";
+import { sendGAEvent } from "@next/third-parties/google";
 
 const AVATAR_THEMES = [
   "from-primary/25 via-accent/20 to-secondary",
@@ -28,7 +30,10 @@ interface ConsultantCardProps {
   index: number;
 }
 
-export default function ConsultantCard({ consultant, index }: ConsultantCardProps) {
+export default function ConsultantCard({
+  consultant,
+  index,
+}: ConsultantCardProps) {
   const firstName = consultant.name.split(" ")[0];
   const avatarTheme = AVATAR_THEMES[index % AVATAR_THEMES.length];
 
@@ -37,7 +42,7 @@ export default function ConsultantCard({ consultant, index }: ConsultantCardProp
       <div className="relative">
         <div
           className={cn(
-            "flex size-20 items-center justify-center rounded-full bg-gradient-to-br text-lg font-bold text-foreground",
+            "flex size-20 items-center justify-center rounded-full bg-linear-to-br text-lg font-bold text-foreground",
             avatarTheme,
           )}
         >
@@ -59,12 +64,25 @@ export default function ConsultantCard({ consultant, index }: ConsultantCardProp
 
       <div className="flex items-center gap-2 text-xs text-muted-foreground">
         <CalendarDays className="size-3.5 shrink-0" />
-        <span>Bergabung sejak {formatJoinDate(consultant.joinMonth, consultant.joinYear)}</span>
+        <span>
+          Bergabung sejak{" "}
+          {formatJoinDate(consultant.joinMonth, consultant.joinYear)}
+        </span>
       </div>
 
       <Link
+        onClick={() => {
+          sendGAEvent("event", "consultant-contact-click", {
+            consultant_id: consultant.id,
+            consultant_name: consultant.name,
+            method: "whatsapp",
+          });
+        }}
         href={consultant.whatsapp}
-        className={cn(buttonVariants({ variant: "outline", size: "sm" }), "mt-auto w-full")}
+        className={cn(
+          buttonVariants({ variant: "outline", size: "sm" }),
+          "mt-auto w-full",
+        )}
       >
         <PhoneCall />
         Konsultasi dengan {firstName}
