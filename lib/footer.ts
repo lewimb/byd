@@ -2,21 +2,22 @@ import InstagramIcon from "@/components/components/shared/svg/instagram";
 import YoutubeIcon from "@/components/components/shared/svg/youtube";
 import TikTokIcon from "@/components/components/shared/svg/tiktok";
 import FacebookIcon from "@/components/components/shared/svg/facebook";
+import { BUSINESS } from "@/lib/seo";
 
 export const FOOTER = {
   company: {
-    name: "BYD Arista Tangerang",
+    name: BUSINESS.name,
     logo: "/images/logo/arista.svg",
     tagline: "Terbaik dan Terpercaya",
   },
 
   contact: {
     address: {
-      street: "Jl. Raya Kalimalang No. 19",
-      city: "Duren Sawit, Jakarta Timur 13440",
+      street: BUSINESS.address.streetAddress,
+      city: `${BUSINESS.address.addressLocality}, ${BUSINESS.address.addressRegion} ${BUSINESS.address.postalCode}`,
     },
-    phone: "021-86601111",
-    email: "info@arista-group.co.id",
+    phone: BUSINESS.telephone,
+    email: BUSINESS.email,
   },
 
   workingHours: [
@@ -87,7 +88,7 @@ export const FOOTER = {
   ],
 
   copyright: {
-    text: "© 2026 BYD Arista Tangerang. All Rights Reserved.",
+    text: `© 2026 ${BUSINESS.name}. All Rights Reserved.`,
     subtitle: "Dealer Resmi BYD Indonesia",
   },
 };
