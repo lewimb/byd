@@ -11,6 +11,7 @@ function placeholder(width: number, height: number, label: string) {
 export const carDetails: CarDetail[] = [
   {
     id: "4",
+    slug: "sealion-7",
     name: "BYD Sealion 7",
     tagline: "SUV elektrik AWD untuk mobilitas kelas atas yang senyap dan bertenaga.",
     category: "SUV Elektrik",
@@ -116,6 +117,7 @@ export const carDetails: CarDetail[] = [
   },
   {
     id: "3",
+    slug: "seal",
     name: "BYD Seal",
     tagline: "Sedan sport listrik dengan performa tinggi dan akselerasi luar biasa.",
     category: "Sedan Elektrik",
@@ -220,6 +222,7 @@ export const carDetails: CarDetail[] = [
   },
   {
     id: "1",
+    slug: "dolphin",
     name: "BYD Dolphin",
     tagline: "Hatchback stylish dengan kabin luas dan fitur canggih untuk anak muda dan keluarga muda.",
     category: "Hatchback Elektrik",
@@ -324,6 +327,7 @@ export const carDetails: CarDetail[] = [
   },
   {
     id: "2",
+    slug: "atto-3",
     name: "BYD Atto 3",
     tagline: "SUV elektrik dengan desain futuristik, cocok untuk Anda yang mengutamakan kenyamanan dan performa.",
     category: "SUV Elektrik",
@@ -428,6 +432,7 @@ export const carDetails: CarDetail[] = [
   },
   {
     id: "5",
+    slug: "m6-denza-d9",
     name: "BYD M6 & Denza D9",
     tagline: "MPV mewah untuk keluarga besar atau kebutuhan korporasi dengan kenyamanan superior.",
     category: "MPV Elektrik",
@@ -533,6 +538,7 @@ export const carDetails: CarDetail[] = [
   },
   {
     id: "6",
+    slug: "atto-1",
     name: "BYD Atto 1",
     tagline: "Compact SUV elektrik yang lincah dan efisien untuk mobilitas perkotaan.",
     category: "Compact SUV Elektrik",
@@ -646,4 +652,8 @@ export const carDetails: CarDetail[] = [
 
 export function getCarDetailById(id: string): CarDetail | undefined {
   return carDetails.find((car) => car.id === id);
+}
+
+export function getCarDetailBySlug(slug: string): CarDetail | undefined {
+  return carDetails.find((car) => car.slug === slug);
 }

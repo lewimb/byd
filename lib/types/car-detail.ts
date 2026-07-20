@@ -41,6 +41,8 @@ export interface CarBrochure {
 
 export interface CarDetail {
   id: string;
+  /** URL-friendly identifier used for /cars/[slug] routing. */
+  slug: string;
   name: string;
   tagline: string;
   category: string;

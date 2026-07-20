@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const carRoutes: MetadataRoute.Sitemap = carDetails.map((car) => ({
-    url: `${SITE_URL}/cars/${car.id}`,
+    url: `${SITE_URL}/cars/${car.slug}`,
     changeFrequency: "monthly",
     priority: 0.7,
   }));

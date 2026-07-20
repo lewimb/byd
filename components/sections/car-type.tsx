@@ -109,7 +109,7 @@ export default function CarTypeSection() {
                     name: `${selected.name}`,
                   });
                 }}
-                href={`/cars/${selected.id}`}
+                href={`/cars/${selectedDetail?.slug ?? selected.id}`}
                 className={cn(
                   buttonVariants({ variant: "outline", size: "lg" }),
                   "text-md py-5.5 border-white/25 bg-transparent text-ink-foreground hover:bg-white/10",

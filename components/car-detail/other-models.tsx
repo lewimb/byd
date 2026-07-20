@@ -45,7 +45,7 @@ export default function OtherModels({ car }: OtherModelsProps) {
             return (
               <Link
                 key={other.id}
-                href={`/cars/${other.id}`}
+                href={`/cars/${other.slug}`}
                 className="group flex items-center gap-4 p-3 sm:p-4 transition-colors hover:bg-secondary/50"
               >
                 <div className="relative size-16 sm:size-20 shrink-0 overflow-hidden rounded-xl bg-secondary/40">
