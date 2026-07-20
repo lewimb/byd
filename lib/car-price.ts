@@ -1,25 +1,38 @@
-import type { CarDetail, CarVariant, CarVariantPrice } from "@/lib/types/car-detail";
+import type {
+  CarDetail,
+  CarVariant,
+  CarVariantPrice,
+} from "@/lib/types/car-detail";
 
 export function formatIDR(value: number): string {
   return new Intl.NumberFormat("id-ID", {
     style: "currency",
     currency: "IDR",
     maximumFractionDigits: 0,
-  }).format(value);
+  })
+    .format(value)
+    .replace(/^(\D+)\s+/, "$1");
 }
 
 /** Picks the most inclusive figure to headline: home charging + kWh meter, then home charging, then bare OTR. */
-export function resolvePrice(price?: number | CarVariantPrice): number | undefined {
+export function resolvePrice(
+  price?: number | CarVariantPrice,
+): number | undefined {
   if (price == null) return undefined;
   if (typeof price === "number") return price;
   return (
-    price.includeHomeChargingWithKwhMeter ?? price.includeHomeCharging ?? price.excludeHomeCharging
+    price.includeHomeChargingWithKwhMeter ??
+    price.includeHomeCharging ??
+    price.excludeHomeCharging
   );
 }
 
-export function priceCaption(price?: number | CarVariantPrice): string | undefined {
+export function priceCaption(
+  price?: number | CarVariantPrice,
+): string | undefined {
   if (price == null || typeof price === "number") return undefined;
-  if (price.includeHomeChargingWithKwhMeter != null) return "Termasuk home charging & kWh meter";
+  if (price.includeHomeChargingWithKwhMeter != null)
+    return "Termasuk home charging & kWh meter";
   if (price.includeHomeCharging != null) return "Termasuk home charging";
   if (price.excludeHomeCharging != null) return "Belum termasuk home charging";
   return undefined;
