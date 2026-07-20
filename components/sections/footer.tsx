@@ -3,7 +3,7 @@ import FooterSchedule from "../components/dashboard/footer/schedule";
 import FooterLinks from "../components/dashboard/footer/links";
 import FooterSocialMedia from "../components/dashboard/footer/social-media";
 import { cn } from "@/lib/utils";
-import { BydLogo } from "../components/shared/svg/byd-logo";
+import BydLogo from "@/public/logo.svg";
 
 export interface FooterProps {
   pinStyling: string;
@@ -19,10 +19,15 @@ export default function Footer() {
   return (
     <footer className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 bg-ink space-y-8">
       <div className="shell space-y-8">
-        <BydLogo className={cn("w-30 h-fit text-ink-foreground object-cover")} />
+        <BydLogo
+          className={cn("w-30 h-fit text-ink-foreground object-cover")}
+        />
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 text-ink-foreground gap-4 gap-y-8 sm:gap-y-6">
           <div className={WRAPPER}>
-            <FooterAddress pinStyling={PIN_WRAPPER} iconStyling={ICON_STYLING} />
+            <FooterAddress
+              pinStyling={PIN_WRAPPER}
+              iconStyling={ICON_STYLING}
+            />
           </div>
           <div className={WRAPPER}>
             <FooterSchedule />
