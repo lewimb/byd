@@ -17,7 +17,8 @@ export default function CarVariants({ car }: CarVariantsProps) {
   const recommendedIndex = car.variants.length - 1;
 
   return (
-    <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-20 space-y-10">
+    <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <div className="shell space-y-10">
       <Reveal>
         <SectionHeading
           eyebrow="Varian & Baterai"
@@ -79,6 +80,7 @@ export default function CarVariants({ car }: CarVariantsProps) {
             </Reveal>
           );
         })}
+      </div>
       </div>
     </section>
   );

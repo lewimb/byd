@@ -18,6 +18,7 @@ export default function DimensionsCard({ car }: DimensionsCardProps) {
 
   return (
     <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-20 bg-ink text-ink-foreground">
+      <div className="shell">
       <Reveal>
         <SectionHeading eyebrow="Dimensi" title="Proporsi yang Presisi" tone="dark" />
       </Reveal>
@@ -34,6 +35,7 @@ export default function DimensionsCard({ car }: DimensionsCardProps) {
             </div>
           </Reveal>
         ))}
+      </div>
       </div>
     </section>
   );

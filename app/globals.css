@@ -192,3 +192,10 @@
     scroll-behavior: auto;
   }
 }
+
+@layer utilities {
+  /* Shared content cap so grids/imagery stop stretching past ~1440px on large monitors. */
+  .shell {
+    @apply mx-auto w-full max-w-[90rem];
+  }
+}

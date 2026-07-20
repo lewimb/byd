@@ -6,7 +6,7 @@ export default function CompanyHistory() {
       id="sejarah"
       className="py-28 px-8 max-md:py-24 bg-ink text-ink-foreground scroll-mt-28"
     >
-      <div>
+      <div className="shell">
         <div className="space-y-1">
           <p className="uppercase font-semibold text-accent-glow">SEJARAH</p>
           <h2 className="text-3xl font-bold">Perjalanan BYD</h2>

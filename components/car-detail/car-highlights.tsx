@@ -12,6 +12,7 @@ export default function CarHighlights({ car }: CarHighlightsProps) {
 
   return (
     <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-20 bg-ink text-ink-foreground">
+      <div className="shell">
       <Reveal>
         <SectionHeading
           eyebrow="Sorotan Utama"
@@ -39,6 +40,7 @@ export default function CarHighlights({ car }: CarHighlightsProps) {
             </Reveal>
           );
         })}
+      </div>
       </div>
     </section>
   );

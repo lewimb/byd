@@ -35,7 +35,7 @@ export default function CarHero({ car }: CarHeroProps) {
 
   return (
     <section className="px-4 sm:px-6 lg:px-8 pt-6">
-      <div className="relative overflow-hidden rounded-3xl min-h-[85vh] sm:min-h-[90vh]">
+      <div className="shell relative overflow-hidden rounded-3xl min-h-[85vh] sm:min-h-[90vh]">
         <Image
           src={car.images.hero}
           alt={`${car.name} — ${car.category}`}

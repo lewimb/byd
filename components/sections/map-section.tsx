@@ -17,8 +17,9 @@ export default function MapSection() {
   return (
     <section
       id="lokasi"
-      className="space-y-8 px-6 sm:px-8 py-12 bg-ink text-ink-foreground scroll-mt-28"
+      className="px-6 sm:px-8 py-12 bg-ink text-ink-foreground scroll-mt-28"
     >
+      <div className="shell space-y-8">
       <div className="space-y-3 max-w-2xl">
         <h3 className="uppercase text-xs sm:text-sm font-semibold tracking-widest text-accent-glow">
           Profil Cabang
@@ -91,6 +92,7 @@ export default function MapSection() {
             </li>
           </ul>
         </div>
+      </div>
       </div>
     </section>
   );

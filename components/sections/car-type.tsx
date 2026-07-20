@@ -39,6 +39,7 @@ export default function CarTypeSection() {
       id="mobil"
       className="p-6 sm:p-10 lg:p-16 bg-ink text-ink-foreground scroll-mt-28"
     >
+      <div className="shell">
       <div className="max-w-2xl mb-8 sm:mb-12">
         <h3 className="text-xs sm:text-sm font-semibold tracking-widest text-accent-glow uppercase">
           Pilih Tipe
@@ -167,6 +168,7 @@ export default function CarTypeSection() {
             );
           })}
         </div>
+      </div>
       </div>
     </section>
   );

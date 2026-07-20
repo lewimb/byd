@@ -104,7 +104,8 @@ export default function ColorOptions({ car }: ColorOptionsProps) {
     : "Dynamic Standard Range";
 
   return (
-    <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-20 space-y-10">
+    <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <div className="shell space-y-10">
       <Reveal>
         <SectionHeading eyebrow="Pilihan Warna" title="Ekspresikan Gaya Anda" />
       </Reveal>
@@ -182,6 +183,7 @@ export default function ColorOptions({ car }: ColorOptionsProps) {
             onSelect={setSelected}
           />
         </Reveal>
+      </div>
       </div>
     </section>
   );

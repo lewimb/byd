@@ -70,6 +70,7 @@ export default function Testimony() {
 
   return (
     <section id="testimoni" className="p-4 sm:p-8 space-y-4 scroll-mt-28">
+      <div className="shell space-y-4">
       <div className="space-y-2">
         <h3 className="text-xs sm:text-sm font-semibold">TESTIMONI</h3>
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
@@ -138,6 +139,7 @@ export default function Testimony() {
         {TESTIMONIALS.map((_, i) => (
           <div key={i} className="size-1.5 rounded-full bg-border" />
         ))}
+      </div>
       </div>
     </section>
   );
